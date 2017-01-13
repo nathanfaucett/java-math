@@ -1,0 +1,20 @@
+apply plugin: "java"
+
+
+group = "com.github.nathanfaucett"
+version = "0.0.1"
+description = "vector and matrix math for games"
+
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-api:1.7.21"
+    testCompile "junit:junit:4.12"
+}
