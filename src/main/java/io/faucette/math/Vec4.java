@@ -105,6 +105,9 @@ public class Vec4 {
     public static float length(Vec4 a) { return Vec4.lengthValues(a.x, a.y, a.z, a.w); }
     public float length() { return Vec4.length(this); }
 
+    public static float lengthSq(Vec4 a) { return Vec4.lengthSqValues(a.x, a.y, a.z, a.w); }
+    public float lengthSq() { return Vec4.lengthSq(this); }
+
 
     public static float normalize(Vec4 out, Vec4 a) {
         float x = a.x;
@@ -139,7 +142,7 @@ public class Vec4 {
         out.w = b.w < a.w ? b.w : a.w;
         return out;
     }
-    public Vec4 min(Vec4 a, Vec4 b) { return Vec4.min(this, a, b); }
+    public Vec4 min(Vec4 other) { return Vec4.min(this, this, other); }
 
     public static Vec4 max(Vec4 out, Vec4 a, Vec4 b) {
         out.x = b.x > a.x ? b.x : a.x;
@@ -148,7 +151,7 @@ public class Vec4 {
         out.w = b.w > a.w ? b.w : a.w;
         return out;
     }
-    public Vec4 max(Vec4 a, Vec4 b) { return Vec4.max(this, a, b); }
+    public Vec4 max(Vec4 other) { return Vec4.max(this, this, other); }
 
     public static Vec4 transform(Vec4 out, Vec4 a, Mat2 m) {
         float x = a.x;

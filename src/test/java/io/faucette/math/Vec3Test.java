@@ -101,14 +101,14 @@ public class Vec3Test {
 
     @Test
     public void testMin() {
-        Vec3 a = new Vec3();
-        a.min(new Vec3(1f, 1f, 1f), new Vec3(-1f, -1f, -1f));
+        Vec3 a = new Vec3(1f, 1f, 1f);
+        a.min(new Vec3(-1f, -1f, -1f));
         assertEquals(new Vec3(-1f, -1f, -1f), a);
     }
     @Test
     public void testMax() {
-        Vec3 a = new Vec3();
-        a.max(new Vec3(1f, 1f, 1f), new Vec3(-1f, -1f, -1f));
+        Vec3 a = new Vec3(1f, 1f, 1f);
+        a.max(new Vec3(-1f, -1f, -1f));
         assertEquals(new Vec3(1f, 1f, 1f), a);
     }
 

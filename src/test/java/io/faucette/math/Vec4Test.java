@@ -110,14 +110,14 @@ public class Vec4Test {
 
     @Test
     public void testMin() {
-        Vec4 a = new Vec4();
-        a.min(new Vec4(1f, 1f, 1f, 1f), new Vec4(-1f, -1f, -1f, -1f));
+        Vec4 a = new Vec4(1f, 1f, 1f, 1f);
+        a.min(new Vec4(-1f, -1f, -1f, -1f));
         assertEquals(new Vec4(-1f, -1f, -1f, -1f), a);
     }
     @Test
     public void testMax() {
-        Vec4 a = new Vec4();
-        a.max(new Vec4(1f, 1f, 1f, 1f), new Vec4(-1f, -1f, -1f, -1f));
+        Vec4 a = new Vec4(1f, 1f, 1f, 1f);
+        a.max(new Vec4(-1f, -1f, -1f, -1f));
         assertEquals(new Vec4(1f, 1f, 1f, 1f), a);
     }
 

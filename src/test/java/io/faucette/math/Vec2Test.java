@@ -92,14 +92,14 @@ public class Vec2Test {
 
     @Test
     public void testMin() {
-        Vec2 a = new Vec2();
-        a.min(new Vec2(1f, 1f), new Vec2(-1f, -1f));
+        Vec2 a = new Vec2(1f, 1f);
+        a.min(new Vec2(-1f, -1f));
         assertEquals(new Vec2(-1f, -1f), a);
     }
     @Test
     public void testMax() {
-        Vec2 a = new Vec2();
-        a.max(new Vec2(1f, 1f), new Vec2(-1f, -1f));
+        Vec2 a = new Vec2(1f, 1f);
+        a.max(new Vec2(-1f, -1f));
         assertEquals(new Vec2(1f, 1f), a);
     }
 

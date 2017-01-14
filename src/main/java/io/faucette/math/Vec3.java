@@ -95,6 +95,9 @@ public class Vec3 {
     public static float length(Vec3 a) { return Vec3.lengthValues(a.x, a.y, a.z); }
     public float length() { return Vec3.length(this); }
 
+    public static float lengthSq(Vec3 a) { return Vec3.lengthSqValues(a.x, a.y, a.z); }
+    public float lengthSq() { return Vec3.lengthSq(this); }
+
 
     public static float normalize(Vec3 out, Vec3 a) {
         float x = a.x;
@@ -125,7 +128,7 @@ public class Vec3 {
         out.z = b.z < a.z ? b.z : a.z;
         return out;
     }
-    public Vec3 min(Vec3 a, Vec3 b) { return Vec3.min(this, a, b); }
+    public Vec3 min(Vec3 other) { return Vec3.min(this, this, other); }
 
     public static Vec3 max(Vec3 out, Vec3 a, Vec3 b) {
         out.x = b.x > a.x ? b.x : a.x;
@@ -133,7 +136,7 @@ public class Vec3 {
         out.z = b.z > a.z ? b.z : a.z;
         return out;
     }
-    public Vec3 max(Vec3 a, Vec3 b) { return Vec3.max(this, a, b); }
+    public Vec3 max(Vec3 other) { return Vec3.max(this, this, other); }
 
     public static Vec3 transform(Vec3 out, Vec3 a, Mat2 m) {
         float x = a.x;

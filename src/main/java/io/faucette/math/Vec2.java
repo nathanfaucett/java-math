@@ -85,6 +85,9 @@ public class Vec2 {
     public static float length(Vec2 a) { return Vec2.lengthValues(a.x, a.y); }
     public float length() { return Vec2.length(this); }
 
+    public static float lengthSq(Vec2 a) { return Vec2.lengthSqValues(a.x, a.y); }
+    public float lengthSq() { return Vec2.lengthSq(this); }
+
 
     public static float normalize(Vec2 out, Vec2 a) {
         float x = a.x;
@@ -111,14 +114,14 @@ public class Vec2 {
         out.y = b.y < a.y ? b.y : a.y;
         return out;
     }
-    public Vec2 min(Vec2 a, Vec2 b) { return Vec2.min(this, a, b); }
+    public Vec2 min(Vec2 other) { return Vec2.min(this, this, other); }
 
     public static Vec2 max(Vec2 out, Vec2 a, Vec2 b) {
         out.x = b.x > a.x ? b.x : a.x;
         out.y = b.y > a.y ? b.y : a.y;
         return out;
     }
-    public Vec2 max(Vec2 a, Vec2 b) { return Vec2.max(this, a, b); }
+    public Vec2 max(Vec2 other) { return Vec2.max(this, this, other); }
 
     public static float angle(Vec2 a, Vec2 b) {
         return (float) Math.acos(Vec2.dot(a, b) / (Vec2.length(a) * Vec2.length(b)));
