@@ -10,7 +10,7 @@ public class Vec2 {
         this.x = x;
         this.y = y;
     }
-    public Vec2() { this(0, 0); }
+    public Vec2() { this(0f, 0f); }
 
     public static Vec2 set(Vec2 out, float x, float y) {
         out.x = x;
@@ -125,7 +125,7 @@ public class Vec2 {
     }
     public float angle(Vec2 a) { return Vec2.angle(this, a); }
 
-    public static Vec2 transformAngle(Vec2 out, Vec2 a, float angle) {
+    public static Vec2 transform(Vec2 out, Vec2 a, float angle) {
         float x = a.x;
         float y = a.y;
         float c = (float) Math.cos((double) angle);
@@ -136,11 +136,11 @@ public class Vec2 {
 
         return out;
     }
-    public Vec2 transformAngle(float angle) {
-        return Vec2.transformAngle(this, this, angle);
+    public Vec2 transform(float angle) {
+        return Vec2.transform(this, this, angle);
     }
 
-    public static Vec2 transformMat2(Vec2 out, Vec2 a, Mat2 m) {
+    public static Vec2 transform(Vec2 out, Vec2 a, Mat2 m) {
         float x = a.x;
         float y = a.y;
 
@@ -149,11 +149,11 @@ public class Vec2 {
 
         return out;
     }
-    public Vec2 transformMat2(Mat2 m) {
-        return Vec2.transformMat2(this, this, m);
+    public Vec2 transform(Mat2 m) {
+        return Vec2.transform(this, this, m);
     }
 
-    public static Vec2 transformMat32(Vec2 out, Vec2 a, Mat32 m) {
+    public static Vec2 transform(Vec2 out, Vec2 a, Mat32 m) {
         float x = a.x;
         float y = a.y;
 
@@ -162,8 +162,8 @@ public class Vec2 {
 
         return out;
     }
-    public Vec2 transformMat32(Mat32 m) {
-        return Vec2.transformMat32(this, this, m);
+    public Vec2 transform(Mat32 m) {
+        return Vec2.transform(this, this, m);
     }
 
     public static boolean equals(Vec2 a, Vec2 b) {

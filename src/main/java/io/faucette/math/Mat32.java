@@ -162,10 +162,8 @@ public class Mat32 {
     }
     public float getRotation() { return Mat32.getRotation(this); }
 
-    public static Mat32 translate(Mat32 out, Mat32 a, Vec2 v) {
-        float x = v.x;
-        float y = v.y;
-
+    private static Mat32 translate(Mat32 out, Mat32 a, float x, float y) {
+        
         out.m[0] = a.m[0];
         out.m[1] = a.m[1];
 
@@ -177,7 +175,20 @@ public class Mat32 {
 
         return out;
     }
+    public static Mat32 translate(Mat32 out, Mat32 a, Vec2 v) {
+        return Mat32.translate(out, a, v.x, v.y);
+    }
     public Mat32 translate(Vec2 v) { return Mat32.translate(this, this, v); }
+
+    public static Mat32 translate(Mat32 out, Mat32 a, Vec3 v) {
+        return Mat32.translate(out, a, v.x, v.y);
+    }
+    public Mat32 translate(Vec3 v) { return Mat32.translate(this, this, v); }
+
+    public static Mat32 translate(Mat32 out, Mat32 a, Vec4 v) {
+        return Mat32.translate(out, a, v.x, v.y);
+    }
+    public Mat32 translate(Vec4 v) { return Mat32.translate(this, this, v); }
 
     public static Mat32 rotate(Mat32 out, Mat32 a, double angle) {
         float m11 = a.m[0];
