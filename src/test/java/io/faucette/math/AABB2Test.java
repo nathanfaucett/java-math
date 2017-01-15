@@ -61,6 +61,31 @@ public class AABB2Test {
     }
 
     @Test
+    public void testOverlap() {
+        AABB2 a = new AABB2();
+        AABB2 b = new AABB2();
+        Vec2 out = new Vec2();
+
+        a.fromCenterSize(new Vec2(0f, 0f), new Vec2(2f, 2f));
+
+        b.fromCenterSize(new Vec2(1f, 0f), new Vec2(2f, 2f));
+        a.overlap(out, b);
+        assertEquals(new Vec2(1f, 0f), out);
+
+        b.fromCenterSize(new Vec2(-1f, 0f), new Vec2(2f, 2f));
+        a.overlap(out, b);
+        assertEquals(new Vec2(-1f, 0f), out);
+
+        b.fromCenterSize(new Vec2(0f, 1f), new Vec2(2f, 2f));
+        a.overlap(out, b);
+        assertEquals(new Vec2(0f, 1f), out);
+
+        b.fromCenterSize(new Vec2(0f, -1f), new Vec2(2f, 2f));
+        a.overlap(out, b);
+        assertEquals(new Vec2(0f, -1f), out);
+    }
+
+    @Test
     public void testToString() {
         assertEquals("AABB2(Vec2(Infinity, Infinity), Vec2(-Infinity, -Infinity))", "" + new AABB2());
     }

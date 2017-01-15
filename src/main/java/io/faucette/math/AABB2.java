@@ -48,6 +48,15 @@ public class AABB2 {
     }
     public boolean intersects(AABB2 other) { return AABB2.intersects(this, other); }
 
+    public static AABB2 union(AABB2 out, AABB2 a, AABB2 b) {
+
+        Vec2.min(out.min, a.min, b.min);
+        Vec2.max(out.max, a.max, b.max);
+
+        return out;
+    }
+    public AABB2 union(AABB2 other) { return AABB2.union(this, this, other); }
+
     public static AABB2 fromCenterSize(AABB2 out, Vec2 center, Vec2 size) {
         float hx = size.x * 0.5f;
         float hy = size.y * 0.5f;
@@ -61,6 +70,55 @@ public class AABB2 {
     }
     public AABB2 fromCenterSize(Vec2 center, Vec2 size) {
         return AABB2.fromCenterSize(this, center, size);
+    }
+
+    public static Vec2 overlap(Vec2 out, AABB2 a, AABB2 b) {
+        Vec2 amin = a.min;
+        Vec2 bmin = b.min;
+        Vec2 amax = a.max;
+        Vec2 bmax = b.max;
+        float nx;
+        float ny;
+
+        if ((amax.x + amin.x) * 0.5f > (bmax.x + bmin.x) * 0.5f) {
+            nx = -1f;
+        } else {
+            nx = 1f;
+        }
+
+        if ((amax.y + amin.y) * 0.5f > (bmax.y + bmin.y) * 0.5f) {
+            ny = -1f;
+        } else {
+            ny = 1f;
+        }
+
+        float dx0 = amax.x - bmin.x;
+        float dx1 = bmax.x - amin.x;
+        float dx = dx0;
+        if (Math.abs(dx1) < Math.abs(dx0)) {
+            dx = dx1;
+        }
+
+        float dy0 = amax.y - bmin.y;
+        float dy1 = bmax.y - amin.y;
+        float dy = dy0;
+        if (Math.abs(dy1) < Math.abs(dy0)) {
+            dy = dy1;
+        }
+
+        if (Math.abs(dx) < Math.abs(dy)) {
+            dy = 0f;
+        } else {
+            dx = 0f;
+        }
+
+        out.x = dx * nx;
+        out.y = dy * ny;
+
+        return out;
+    }
+    public Vec2 overlap(Vec2 out, AABB2 other) {
+        return AABB2.overlap(out, this, other);
     }
 
     public static boolean equals(AABB2 a, AABB2 b) {
