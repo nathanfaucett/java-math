@@ -15,7 +15,12 @@ public class Mat2 {
             m21, m22
         );
     }
-
+    public Mat2(Mat2 m) {
+        this(
+            m.m[0], m.m[2],
+            m.m[1], m.m[3]
+        );
+    }
     public Mat2() {
         this(
             1f, 0f,

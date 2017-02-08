@@ -15,7 +15,12 @@ public class Mat32 {
             m21, m22, m23
         );
     }
-
+    public Mat32(Mat32 m) {
+        this(
+            m.m[0], m.m[2], m.m[4],
+            m.m[1], m.m[3], m.m[5]
+        );
+    }
     public Mat32() {
         this(
             1f, 0f, 0f,
@@ -163,7 +168,7 @@ public class Mat32 {
     public float getRotation() { return Mat32.getRotation(this); }
 
     private static Mat32 translate(Mat32 out, Mat32 a, float x, float y) {
-        
+
         out.m[0] = a.m[0];
         out.m[1] = a.m[1];
 

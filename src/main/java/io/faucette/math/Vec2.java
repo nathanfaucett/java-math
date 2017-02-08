@@ -10,6 +10,9 @@ public class Vec2 {
         this.x = x;
         this.y = y;
     }
+    public Vec2(Vec2 v) {
+        this(v.x, v.y);
+    }
     public Vec2() { this(0f, 0f); }
 
     public static Vec2 set(Vec2 out, float x, float y) {

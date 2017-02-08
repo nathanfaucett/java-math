@@ -14,6 +14,9 @@ public class Vec4 {
         this.z = z;
         this.w = w;
     }
+    public Vec4(Vec4 v) {
+        this(v.x, v.y, v.z, v.w);
+    }
     public Vec4() { this(0f, 0f, 0f, 1f); }
 
     public static Vec4 set(Vec4 out, float x, float y, float z, float w) {

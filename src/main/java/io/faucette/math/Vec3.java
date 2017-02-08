@@ -12,6 +12,9 @@ public class Vec3 {
         this.y = y;
         this.z = z;
     }
+    public Vec3(Vec3 v) {
+        this(v.x, v.y, v.z);
+    }
     public Vec3() { this(0f, 0f, 0f); }
 
     public static Vec3 set(Vec3 out, float x, float y, float z) {

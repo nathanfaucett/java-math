@@ -10,7 +10,9 @@ public class AABB2 {
         this.min = min;
         this.max = max;
     }
-
+    public AABB2(AABB2 aabb) {
+        this(aabb.min, aabb.max);
+    }
     public AABB2() {
         this(
             new Vec2(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY),
