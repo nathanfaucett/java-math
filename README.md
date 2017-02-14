@@ -1,14 +1,14 @@
-io.faucette.math [![Build Status](https://travis-ci.org/nathanfaucett/io.faucette.math.svg?branch=master)](https://travis-ci.org/nathanfaucett/io.faucette.math)
+java-math [![Build Status](https://travis-ci.org/nathanfaucett/java-math.svg?branch=master)](https://travis-ci.org/nathanfaucett/java-math)
 =======
 
 vector and matrix math for games
 
 ```java
-import io.faucette.math.Mathf;
-import io.faucette.math.Vec2;
-import io.faucette.math.Mat2;
-import io.faucette.math.Mat32;
-import io.faucette.math.AABB2;
+import java-math.Mathf;
+import java-math.Vec2;
+import java-math.Mat2;
+import java-math.Mat32;
+import java-math.AABB2;
 
 
 Vec2 v = new Vec2(0f, 1f);
