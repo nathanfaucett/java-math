@@ -13,6 +13,13 @@ public class MathfTest {
     }
 
     @Test
+    public void testClosestPOT() {
+        assertEquals(4, Mathf.closestPOT(3));
+        assertEquals(16, Mathf.closestPOT(10));
+        assertEquals(1024, Mathf.closestPOT(900));
+    }
+
+    @Test
     public void testIsPOT() {
         assertTrue(Mathf.isPOT(2));
         assertTrue(Mathf.isPOT(16));
@@ -27,14 +34,14 @@ public class MathfTest {
 
     @Test
     public void testDirectionRadian() {
-        assertEquals(Mathf.directionRadian(0d), Mathf.Direction.RIGHT);
-        assertEquals(Mathf.directionRadian(Math.PI / 4d), Mathf.Direction.UP_RIGHT);
-        assertEquals(Mathf.directionRadian(Math.PI / 2d), Mathf.Direction.UP);
-        assertEquals(Mathf.directionRadian(Math.PI * (3d/4d)), Mathf.Direction.UP_LEFT);
-        assertEquals(Mathf.directionRadian(Math.PI), Mathf.Direction.LEFT);
-        assertEquals(Mathf.directionRadian(-Math.PI), Mathf.Direction.LEFT);
-        assertEquals(Mathf.directionRadian(Math.PI * (5d/4d)), Mathf.Direction.DOWN_LEFT);
-        assertEquals(Mathf.directionRadian(Math.PI * (3d/2d)), Mathf.Direction.DOWN);
-        assertEquals(Mathf.directionRadian(Math.PI * (7d/4d)), Mathf.Direction.DOWN_RIGHT);
+        assertEquals(Mathf.Direction.RIGHT, Mathf.directionRadian(0d));
+        assertEquals(Mathf.Direction.UP_RIGHT, Mathf.directionRadian(Math.PI / 4d));
+        assertEquals(Mathf.Direction.UP, Mathf.directionRadian(Math.PI / 2d));
+        assertEquals(Mathf.Direction.UP_LEFT, Mathf.directionRadian(Math.PI * (3d/4d)));
+        assertEquals(Mathf.Direction.LEFT, Mathf.directionRadian(Math.PI));
+        assertEquals(Mathf.Direction.LEFT, Mathf.directionRadian(-Math.PI));
+        assertEquals(Mathf.Direction.DOWN_LEFT, Mathf.directionRadian(Math.PI * (5d/4d)));
+        assertEquals(Mathf.Direction.DOWN, Mathf.directionRadian(Math.PI * (3d/2d)));
+        assertEquals(Mathf.Direction.DOWN_RIGHT, Mathf.directionRadian(Math.PI * (7d/4d)));
     }
 }

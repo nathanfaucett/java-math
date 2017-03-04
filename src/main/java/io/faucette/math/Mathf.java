@@ -32,6 +32,28 @@ public class Mathf {
         return (x & -x) == x;
     }
 
+    public static short closestPOT(short x) {
+        short power = 1;
+        while (power < x) {
+            power *= 2;
+        }
+        return power;
+    }
+    public static int closestPOT(int x) {
+        int power = 1;
+        while (power < x) {
+            power *= 2;
+        }
+        return power;
+    }
+    public static long closestPOT(long x) {
+        long power = 1;
+        while (power < x) {
+            power *= 2;
+        }
+        return power;
+    }
+
     public static short lerp(short a, short b, float t) {
         return (short) lerp((float) a, (float) b, t);
     }
